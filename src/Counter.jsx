@@ -1,26 +1,19 @@
-import './Counter.css';
+ import './Counter.css';
+import { useState } from 'react';
 
 const Counter = () => {
-  let theme = 'light';
+  const [theme, setTheme] = useState('light');
 
-  const setDarkTheme = () => {
-    theme = 'dark';
-    console.log(theme);
-  };
-
-  const setLightTheme = () => {
-    theme = 'light';
-    console.log(theme);
+  const toggleThemeHandler = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (
     <div className={`state ${theme}`}>
       <h1>UseState Component</h1>
-      <button onClick={setDarkTheme}>Dark</button>
-      <button onClick={setLightTheme}>Light</button>
-      <p>
-        Current theme (logged only): <strong>{theme}</strong>
-      </p>
+      <button onClick={() => setTheme('dark')}>Dark</button>
+      <button onClick={() => setTheme('light')}>Light</button>
+      <button onClick={toggleThemeHandler}>Toggle Theme</button>
     </div>
   );
 };
