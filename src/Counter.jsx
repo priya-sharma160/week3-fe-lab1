@@ -1,4 +1,4 @@
-import './Counter.css';
+ import './Counter.css';
 import { useState } from 'react';
 
 const Counter = () => {
@@ -7,6 +7,14 @@ const Counter = () => {
 
   const toggleThemeHandler = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  const incrementHandler = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const decrementHandler = () => {
+    setCount(prevCount => prevCount - 1);
   };
 
   return (
@@ -18,8 +26,8 @@ const Counter = () => {
 
       <h2>{count}</h2>
 
-      <button>Increment</button>
-      <button>Decrement</button>
+      <button onClick={incrementHandler}>Increment</button>
+      <button onClick={decrementHandler}>Decrement</button>
     </div>
   );
 };
