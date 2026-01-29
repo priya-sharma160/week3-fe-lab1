@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 const Counter = () => {
   const [theme, setTheme] = useState('light');
+  const [count, setCount] = useState(0);
 
   const toggleThemeHandler = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -14,6 +15,11 @@ const Counter = () => {
       <button onClick={() => setTheme('dark')}>Dark</button>
       <button onClick={() => setTheme('light')}>Light</button>
       <button onClick={toggleThemeHandler}>Toggle Theme</button>
+
+      <h2>{count}</h2>
+
+      <button>Increment</button>
+      <button>Decrement</button>
     </div>
   );
 };
